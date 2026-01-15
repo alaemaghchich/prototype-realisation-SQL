@@ -147,17 +147,15 @@ SELECT * FROM personnel
 --PARTIE 3 : requête DELETE
 DELETE FROM emprunt WHERE emprunt_id = 2;
 
-DELETE FROM lecteur l
-WHERE NOT EXISTS (
-    SELECT 1
-    FROM emprunt e
-    WHERE e.lecteur_id = l.lecteur_id
+DELETE FROM lecteur
+WHERE lecteur_id NOT IN (
+    SELECT lecteur_id
+    FROM emprunt
 );
 
 
-DELETE FROM ouvrage o
-WHERE NOT EXISTS (
-    SELECT 1
-    FROM emprunt e
-    WHERE e.ouvrage_id = o.ouvrage_id
+DELETE FROM ouvrage
+WHERE ouvrage_id NOT IN (
+    SELECT ouvrage_id
+    FROM emprunt
 );
