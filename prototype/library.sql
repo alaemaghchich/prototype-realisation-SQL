@@ -134,7 +134,7 @@ WHERE ouvrage_id = 1;
 
 SELECT * FROM ouvrage;
 
-UPDATE emprunt SET date_retour_effective = CURRENT_DATE
+UPDATE emprunt SET date_retour_effective = CURRENT_DATE --or "dd-mm-yyyy"
 WHERE emprunt_id = 3;
 
 SELECT * FROM emprunt
